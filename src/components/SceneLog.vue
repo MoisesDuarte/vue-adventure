@@ -1,7 +1,7 @@
 <template>
   <section class="scene-log">
-      <p><strong>{{ log.title }}</strong></p>
-      <p>{{ log.description }}</p>
+      <p><strong>{{ currentLog.title }}</strong></p>
+      <p>{{ currentLog.description }}</p>
   </section>
 </template>
 
@@ -12,16 +12,6 @@ export default {
     currentLog: {
       type: Object,
     }
-  },
-  data() {
-    return {
-      log: this.currentLog,
-    };
-  },
-  computed: {
-    isLogEmpty: function () {
-      return Object.keys(this.log).length === 0 && this.log.constructor === Object
-    },
   },
 }
 </script>

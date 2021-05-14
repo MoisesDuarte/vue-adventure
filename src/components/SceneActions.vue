@@ -111,6 +111,7 @@ export default {
       console.info('setInventory');
     },
     goBackToActions() {
+      this.$emit('show-examine-log', { title: '', description: '' });
       this.isInitial = true;
       this.isMovement = false;
       this.isExamine = false;
