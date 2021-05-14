@@ -1,8 +1,13 @@
 <template>
   <div class="game-container">
     <SceneDescription />
-    <SceneActions :points="currentScene.points" />
-    <SceneLog />
+    <SceneActions 
+      :points="currentScene.points"
+      @show-examine-log="showLog($event)"
+    />
+    <SceneLog
+      :currentLog="currentLog"
+    />
   </div>
 </template>
 
@@ -60,8 +65,14 @@ export default {
         },
       },
       inventory: [],
+      currentLog: {},
     };
   },
+  methods: {
+    showLog(logData) {
+      this.currentLog = logData;
+    },
+  }
 }
 </script>
 

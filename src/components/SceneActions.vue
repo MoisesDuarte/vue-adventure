@@ -1,5 +1,6 @@
 <template>
  <section class="scene-actions">
+ <!-- TODO: Remove redundancy from template -->
     <ul v-if="isInitial">
       <li
         v-for="action in actions" 
@@ -12,8 +13,19 @@
       <li 
         v-for="move in movePoints"
         :key="move.id"
-        @click="onMovementClick(move.slug)">
+        @click="onMovementClick(move)">
         {{ move.title }}
+      </li>
+      <li @click="goBackToActions()">
+        Back
+      </li>
+    </ul>
+    <ul v-if="isExamine">
+      <li 
+        v-for="examine in examinePoints"
+        :key="examine.id"
+        @click="onExamineClick(examine)">
+        {{ examine.title }}
       </li>
       <li @click="goBackToActions()">
         Back
@@ -23,6 +35,7 @@
 </template>
 
 <script>
+// TODO: Remove redundancy from code
 export default {
   name: 'SceneActions',
   props: {
@@ -71,17 +84,28 @@ export default {
       this.isInitial = false;
       this.isMovement = true;
     },
-    onMovementClick(slug) {
+    onMovementClick(movement) {
 
     },
     setExaminePoints() {
-      console.info('setExaminePoints');
+      this.isInitial = false;
+      this.isExamine = true;
+    },
+    onExamineClick(examination) {
+      const { title, description } = examination;
+      this.$emit('show-examine-log', { title, description });
     },
     setTalkPoints() {
       console.info('setTalkPoints');
     },
+    onTalkClick(talk) {
+
+    },
     setInteractPoints() {
       console.info('setInteractPoints');
+    },
+    onInteractClick(interaction) {
+      
     },
     setInventory() {
       console.info('setInventory');
