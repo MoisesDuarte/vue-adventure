@@ -51,7 +51,7 @@ export default {
             {
               id: 1,
               title: 'Crystal Line Emitter',
-              description: 'Laser cutting device powered by a red crystal'
+              description: 'Tissue cutting device powered by a red crystal'
             },
           ],
           talk: [
