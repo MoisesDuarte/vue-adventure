@@ -21,8 +21,4 @@ export default {
   border-top: 1px solid var(--color-black);
   padding: 0.5em;
 }
-
-.scene-log {
-
-}
 </style>

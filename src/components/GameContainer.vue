@@ -1,6 +1,11 @@
 <template>
   <div class="game-container">
-    <SceneDescription />
+    <SceneDescription
+      :currentDescription="{
+        title: currentScene.title,
+        description: currentScene.description
+      }"
+    />
     <SceneActions 
       :points="currentScene.points"
       @show-examine-log="showLog($event)"
