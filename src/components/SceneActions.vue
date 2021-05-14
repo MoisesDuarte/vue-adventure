@@ -15,6 +15,9 @@
         @click="onMovementClick(move.slug)">
         {{ move.title }}
       </li>
+      <li @click="goBackToActions()">
+        Back
+      </li>
     </ul>
   </section>
 </template>
@@ -82,6 +85,14 @@ export default {
     },
     setInventory() {
       console.info('setInventory');
+    },
+    goBackToActions() {
+      this.isInitial = true;
+      this.isMovement = false;
+      this.isExamine = false;
+      this.isTalk = false;
+      this.isInteract = false;
+      this.isInventory = false;
     }
   },
   created() {
