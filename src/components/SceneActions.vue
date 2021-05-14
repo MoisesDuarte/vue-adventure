@@ -1,11 +1,19 @@
 <template>
  <section class="scene-actions">
-    <ul>
+    <ul v-if="isInitial">
       <li
         v-for="action in actions" 
         :key="action.id" 
         @click="onActionClick(action.trigger)">
         {{ action.name }}
+      </li>
+    </ul>
+    <ul v-if="isMovement">
+      <li 
+        v-for="move in movePoints"
+        :key="move.id"
+        @click="onMovementClick(move.slug)">
+        {{ move.title }}
       </li>
     </ul>
   </section>
@@ -14,9 +22,25 @@
 <script>
 export default {
   name: 'SceneActions',
+  props: {
+    points: {
+      type: Object,
+      required: true,
+    }
+  },
   data() {
     return {
       actions: [],
+      movePoints: this.points.move,
+      examinePoints: this.points.examine,
+      talkPoins: this.points.talk,
+      interactPoints: this.points.interact,
+      isInitial: true,
+      isMovement: false,
+      isExamine: false,
+      isTalk: false,
+      isInteract: false,
+      isInventory: false,
     };
   },
   methods: {
@@ -41,7 +65,11 @@ export default {
       triggerFunctions[trigger]();
     },
     setMovementPoints() {
-      console.info('setMovementPoints');
+      this.isInitial = false;
+      this.isMovement = true;
+    },
+    onMovementClick(slug) {
+
     },
     setExaminePoints() {
       console.info('setExaminePoints');

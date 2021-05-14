@@ -1,7 +1,7 @@
 <template>
   <div class="game-container">
     <SceneDescription />
-    <SceneActions />
+    <SceneActions :points="currentScene.points" />
     <SceneLog />
   </div>
 </template>
