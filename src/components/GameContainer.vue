@@ -85,6 +85,7 @@ export default {
 .game-container {
   display: grid;
   grid-template-columns: 80% 20%;
+  grid-template-rows: 180px 100px;
 }
 
 .game-container > :last-child {
