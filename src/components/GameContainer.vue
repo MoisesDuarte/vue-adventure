@@ -105,4 +105,10 @@ export default {
 .game-container > :last-child {
   grid-column: 1 / span 2;
 }
+
+@media(max-width: 1000px) {
+  .game-container {
+    width: 90vw;
+  }
+}
 </style>
