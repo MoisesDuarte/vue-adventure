@@ -60,10 +60,22 @@ export default {
     },
     onSubActionClick(action) {
       const actionTriggers = {
+        move: () => {
+          //
+        },
         examine: () => {
           const { title, description } = action;
           this.$emit('show-examine-log', { title, description });
         },
+        talk: () => {
+          //
+        },
+        interact: () => {
+          //
+        },
+        inventory: () => {
+          //
+        }
       };
 
       actionTriggers[this.subActionType]();
