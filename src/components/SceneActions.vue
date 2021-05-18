@@ -5,31 +5,21 @@
       <li
         v-for="action in actions" 
         :key="action.id" 
-        @click="onActionClick(action.trigger)">
+        @click="onActionClick(action.slug)">
         {{ action.name }}
       </li>
     </ul>
-    <ul v-if="isMovement">
+    <ul v-if="!isInitial">
       <li 
-        v-for="move in movePoints"
-        :key="move.id"
-        @click="onMovementClick(move)">
-        {{ move.title }}
+        v-for="action in subActions"
+        :key="action.id"
+        @click="onSubActionClick(action)">
+        {{ action.title }}
       </li>
       <li @click="goBackToActions()">
         Back
       </li>
     </ul>
-    <ul v-if="isExamine">
-      <li 
-        v-for="examine in examinePoints"
-        :key="examine.id"
-        @click="onExamineClick(examine)">
-        {{ examine.title }}
-      </li>
-      <li @click="goBackToActions()">
-        Back
-      </li>
     </ul>
   </section>
 </template>
@@ -47,77 +37,41 @@ export default {
   data() {
     return {
       actions: [],
-      movePoints: this.points.move,
-      examinePoints: this.points.examine,
-      talkPoins: this.points.talk,
-      interactPoints: this.points.interact,
+      subActions: [],
+      subActionType: '',
+      showSubActions: false,
       isInitial: true,
-      isMovement: false,
-      isExamine: false,
-      isTalk: false,
-      isInteract: false,
-      isInventory: false,
     };
   },
   methods: {
     setInitialActions() {
       this.actions = [
-        { id: 0, name: 'Move', trigger: 'move' },
-        { id: 1, name: 'Examine', trigger: 'examine' },
-        { id: 2, name: 'Talk', trigger: 'talk' },
-        { id: 3, name: 'Interact', trigger: 'interact' },
-        { id: 4, name: 'Inventory', trigger: 'inventory' },
+        { id: 0, name: 'Move', slug: 'move' },
+        { id: 1, name: 'Examine', slug: 'examine' },
+        { id: 2, name: 'Talk', slug: 'talk' },
+        { id: 3, name: 'Interact', slug: 'interact' },
+        { id: 4, name: 'Inventory', slug: 'inventory' },
       ]
     },
-    onActionClick(trigger) {
-      const triggerFunctions = {
-        move: () => { this.setMovementPoints() },
-        examine: () => { this.setExaminePoints() },
-        talk: () => { this.setTalkPoints() },
-        interact: () => { this.setInteractPoints() },
-        inventory: () => { this.setInventory() }
-      }
-
-      triggerFunctions[trigger]();
-    },
-    setMovementPoints() {
+    onActionClick(type) {
+      this.subActionType = type;
+      this.subActions = this.points[type];
       this.isInitial = false;
-      this.isMovement = true;
     },
-    onMovementClick(movement) {
+    onSubActionClick(action) {
+      const actionTriggers = {
+        examine: () => {
+          const { title, description } = action;
+          this.$emit('show-examine-log', { title, description });
+        },
+      };
 
-    },
-    setExaminePoints() {
-      this.isInitial = false;
-      this.isExamine = true;
-    },
-    onExamineClick(examination) {
-      const { title, description } = examination;
-      this.$emit('show-examine-log', { title, description });
-    },
-    setTalkPoints() {
-      console.info('setTalkPoints');
-    },
-    onTalkClick(talk) {
-
-    },
-    setInteractPoints() {
-      console.info('setInteractPoints');
-    },
-    onInteractClick(interaction) {
-      
-    },
-    setInventory() {
-      console.info('setInventory');
+      actionTriggers[this.subActionType]();
     },
     goBackToActions() {
       this.$emit('show-examine-log', { title: '', description: '' });
+      this.subActionType = '';
       this.isInitial = true;
-      this.isMovement = false;
-      this.isExamine = false;
-      this.isTalk = false;
-      this.isInteract = false;
-      this.isInventory = false;
     }
   },
   created() {
