@@ -19,10 +19,7 @@ export default {
   methods: {
     onNextClick() {
       this.logIndex = this.logIndex + 1 < this.currentLog.lines.length ? this.logIndex + 1 : 0;
-
-      if (this.logIndex === 0) {
-        this.$emit('clean-log');
-      }
+      if (this.logIndex === 0) this.$emit('clean-log');
     },
   },
   props: {
@@ -41,7 +38,7 @@ export default {
 }
 
 .scene-log > button {
-  border: 1px solid var(--color-black);
+  border: none;
   border-radius: 2px;
   background: transparent;
   position: absolute;
