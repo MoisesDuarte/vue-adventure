@@ -17,8 +17,8 @@ export default {
 
 <style>
 :root {
-  --color-black: #2c3e50;
-  --color-white: #ffffff;
+  --color-primary: #2c3e50;
+  --color-secondary: #ffffff;
 }
 
 html {
@@ -34,6 +34,6 @@ html {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--color-black);
+  color: var(--color-primary);
 }
 </style>

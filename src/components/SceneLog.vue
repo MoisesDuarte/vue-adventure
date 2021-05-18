@@ -35,7 +35,7 @@ export default {
 <style scoped>
 .scene-log {
   position: relative;
-  border-top: 1px solid var(--color-black);
+  border-top: 1px solid var(--color-primary);
   padding: 1em;
 }
 
@@ -48,14 +48,14 @@ export default {
   border: none;
   border-radius: 2px;
   background: transparent;
-  color: var(--color-black);
+  color: var(--color-primary);
   position: absolute;
   right: 6px;
   bottom: 6px;
 }
 
 .scene-log > button:hover {
-  background: var(--color-black);
+  background: var(--color-primary);
   color: white;
   cursor: pointer;
 }

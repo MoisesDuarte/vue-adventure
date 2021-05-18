@@ -97,23 +97,23 @@ export default {
 
 <style scoped>
 .scene-actions {
-  border-left: 1px solid var(--color-black);
+  border-left: 1px solid var(--color-primary);
 }
 
 .scene-actions > ul {
   list-style: none;
   margin: 0;
-  padding: 0.5em;
+  padding: 1em;
 }
 
 .scene-actions > ul > li {
-  color: var(--color-black);
+  color: var(--color-primary);
   margin-bottom: 0.25em;
 }
 
 .scene-actions > ul > li:hover {
-  background: var(--color-black);
-  color: var(--color-white);
+  background: var(--color-primary);
+  color: var(--color-secondary);
   cursor: pointer;
 }
 </style>

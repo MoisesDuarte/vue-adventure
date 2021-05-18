@@ -98,7 +98,7 @@ export default {
   grid-template-rows: 300px 150px;
 
   width: 800px;
-  border: 1px solid var(--color-black);
+  border: 1px solid var(--color-primary);
 }
 
 .game-container > :last-child {
