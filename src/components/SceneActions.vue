@@ -41,6 +41,7 @@ export default {
       subActionType: '',
       showSubActions: false,
       isInitial: true,
+      isBlocked: false,
     };
   },
   methods: {

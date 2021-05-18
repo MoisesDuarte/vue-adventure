@@ -36,16 +36,22 @@ export default {
 .scene-log {
   position: relative;
   border-top: 1px solid var(--color-black);
-  padding: 0.5em;
+  padding: 1em;
+}
+
+.scene-log > p {
+  margin: 0;
+  margin-bottom: 0.5em;
 }
 
 .scene-log > button {
   border: none;
   border-radius: 2px;
   background: transparent;
+  color: var(--color-black);
   position: absolute;
   right: 6px;
-  bottom: -8px;
+  bottom: 6px;
 }
 
 .scene-log > button:hover {

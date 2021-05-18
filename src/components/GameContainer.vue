@@ -95,7 +95,10 @@ export default {
 .game-container {
   display: grid;
   grid-template-columns: 80% 20%;
-  grid-template-rows: 180px 100px;
+  grid-template-rows: 300px 150px;
+
+  width: 800px;
+  border: 1px solid var(--color-black);
 }
 
 .game-container > :last-child {
