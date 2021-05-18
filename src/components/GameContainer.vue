@@ -97,7 +97,7 @@ export default {
   grid-template-columns: 80% 20%;
   grid-template-rows: 300px 150px;
 
-  width: 800px;
+  width: 60vw;
   border: 1px solid var(--color-primary);
   border-radius: 0.35em;
 }
