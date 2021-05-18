@@ -19,6 +19,7 @@ export default {
 
 <style scoped>
 .scene-description {
+  color: var(--color-white);
   padding: 0.5em;
 }
 </style>

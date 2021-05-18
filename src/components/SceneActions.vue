@@ -106,12 +106,13 @@ export default {
 }
 
 .scene-actions > ul > li {
+  color: var(--color-black);
   margin-bottom: 0.25em;
 }
 
 .scene-actions > ul > li:hover {
   background: var(--color-black);
-  color: white;
+  color: var(--color-white);
   cursor: pointer;
 }
 </style>

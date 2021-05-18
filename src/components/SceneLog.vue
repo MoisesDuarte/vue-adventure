@@ -2,7 +2,9 @@
   <section class="scene-log">
       <p><strong>{{ currentLog.title }}</strong></p>
       <p>{{ currentLog.lines[logIndex] }}</p>
-      <button v-if="currentLog.lines.length > 1" @click="onNextClick">
+      <button 
+        v-if="currentLog.lines.length > 1" 
+        @click="onNextClick">
         Next
       </button>
   </section>

@@ -18,6 +18,7 @@ export default {
 <style>
 :root {
   --color-black: #2c3e50;
+  --color-white: #ffffff;
 }
 
 html {
