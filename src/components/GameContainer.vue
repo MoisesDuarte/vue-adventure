@@ -14,6 +14,7 @@
     />
     <SceneLog
       :currentLog="currentLog"
+      @clean-log="showLog({ title: '', lines: [] })"
     />
   </div>
 </template>
@@ -84,7 +85,7 @@ export default {
       this.currentLog.lines = [logData.description];
     },
     triggerDialog(dialogData) {
-      
+      this.currentLog = dialogData;
     }
   }
 }

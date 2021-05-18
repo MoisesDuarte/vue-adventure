@@ -2,7 +2,7 @@
   <section class="scene-log">
       <p><strong>{{ currentLog.title }}</strong></p>
       <p>{{ currentLog.lines[logIndex] }}</p>
-      <button v-if="isDialog">
+      <button v-if="currentLog.lines.length > 1" @click="onNextClick">
         Next
       </button>
   </section>
@@ -14,8 +14,16 @@ export default {
   data() {
     return {
       logIndex: 0,
-      isDialog: false,
     }
+  },
+  methods: {
+    onNextClick() {
+      this.logIndex = this.logIndex + 1 < this.currentLog.lines.length ? this.logIndex + 1 : 0;
+
+      if (this.logIndex === 0) {
+        this.$emit('clean-log');
+      }
+    },
   },
   props: {
     currentLog: {
@@ -38,7 +46,7 @@ export default {
   background: transparent;
   position: absolute;
   right: 6px;
-  bottom: 0;
+  bottom: -8px;
 }
 
 .scene-log > button:hover {
