@@ -1,7 +1,7 @@
 <template>
 <!-- TODO: Rather than a description, maybe an image would be better -->
   <section class="scene-description">
-    <p><strong>{{ currentDescription.title }}</strong></p>
+    <h1>{{ currentDescription.title }}</h1>
     <p>{{ currentDescription.description }}</p>
   </section>
 </template>
@@ -20,11 +20,11 @@ export default {
 <style scoped>
 .scene-description {
   color: var(--color-primary);
-  padding: 1em;
+  padding: 1.5em;
 }
 
-.scene-description > p {
+.scene-description > h1, p {
   margin: 0;
-  margin-bottom: 0.5em
+  margin-bottom: 0.25em
 }
 </style>

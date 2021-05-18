@@ -99,6 +99,7 @@ export default {
 
   width: 800px;
   border: 1px solid var(--color-primary);
+  border-radius: 0.35em;
 }
 
 .game-container > :last-child {

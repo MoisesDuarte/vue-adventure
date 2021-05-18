@@ -17,20 +17,23 @@ export default {
 
 <style>
 :root {
-  --color-primary: #2c3e50;
-  --color-secondary: #ffffff;
+  --color-primary: #ffffff;
+  --color-secondary: #333333;
 }
 
-html {
-  box-sizing: border-box;
-}
-
-#app {
-  height: 95vh;
+body {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  height: 100vh;
+  margin: 0;
+  box-sizing: border-box;
+  background: var(--color-secondary);
+}
+
+#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

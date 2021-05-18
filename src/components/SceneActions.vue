@@ -102,13 +102,14 @@ export default {
 
 .scene-actions > ul {
   list-style: none;
-  margin: 0;
-  padding: 1em;
+  margin: 1em;
+  padding: 0;
 }
 
 .scene-actions > ul > li {
   color: var(--color-primary);
   margin-bottom: 0.25em;
+  padding: 0.25em;
 }
 
 .scene-actions > ul > li:hover {
