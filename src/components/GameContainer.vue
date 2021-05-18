@@ -8,7 +8,9 @@
     />
     <SceneActions 
       :points="currentScene.points"
+      @move-to-scene=""
       @show-examine-log="showLog($event)"
+      @trigger-dialog="triggerDialog($event)"
     />
     <SceneLog
       :currentLog="currentLog"
@@ -70,13 +72,20 @@ export default {
         },
       },
       inventory: [],
-      currentLog: {},
+      currentLog: {
+        title: '',
+        lines: [],
+      },
     };
   },
   methods: {
     showLog(logData) {
-      this.currentLog = logData;
+      this.currentLog.title = logData.title;
+      this.currentLog.lines = [logData.description];
     },
+    triggerDialog(dialogData) {
+      
+    }
   }
 }
 </script>

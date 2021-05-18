@@ -61,14 +61,16 @@ export default {
     onSubActionClick(action) {
       const actionTriggers = {
         move: () => {
-          //
+          const { slug } = action;
+          this.$emit('move-to-scene', slug);
         },
         examine: () => {
           const { title, description } = action;
           this.$emit('show-examine-log', { title, description });
         },
         talk: () => {
-          //
+          const { title, lines } = action;
+          this.$emit('trigger-dialog', { title, lines });
         },
         interact: () => {
           //
