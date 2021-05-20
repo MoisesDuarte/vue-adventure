@@ -1,3 +1,3 @@
 # vue-adventure
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/vue-adventure)
+Remake of an old project of mine
